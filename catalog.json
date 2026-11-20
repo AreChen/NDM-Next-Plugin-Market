@@ -5,17 +5,63 @@
       "id": "yt-dlp",
       "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
       "version": "0.1.0",
-      "name": {"en": "YouTube", "zh": "YouTube"},
-      "description": {"en": "Download YouTube video or audio with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"},
-      "artifacts": {}
+      "name": {
+        "en": "YouTube",
+        "zh": "YouTube"
+      },
+      "description": {
+        "en": "Download YouTube video or audio with yt-dlp.",
+        "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"
+      },
+      "artifacts": {
+        "linux-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.0/ndm-yt-dlp-0.1.0-linux-x86_64.zip",
+          "sha256": "8209e9a9c78416cc5874cbb949c812b9fc185350dbebf7c7d5ee4c1784508ad5"
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.0/ndm-yt-dlp-0.1.0-macos-aarch64.zip",
+          "sha256": "7c1ae189230a7eaf27f81b5bae882f89f886435c6e69d22b78f7b2496006d903"
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.0/ndm-yt-dlp-0.1.0-macos-x86_64.zip",
+          "sha256": "f984e8013e0e0e1cbdc626756eff0cbe8c0f631f75847a42efddd35314bc2839"
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.0/ndm-yt-dlp-0.1.0-windows-x86_64.zip",
+          "sha256": "9ecccc94f7ed821254c6eb7a94b7a4c8f3c5e306b3ef9997440566019e2a5d88"
+        }
+      }
     },
     {
       "id": "bittorrent",
       "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
       "version": "0.1.0",
-      "name": {"en": "BitTorrent", "zh": "BitTorrent"},
-      "description": {"en": "Download magnet links and .torrent files with librqbit.", "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"},
-      "artifacts": {}
+      "name": {
+        "en": "BitTorrent",
+        "zh": "BitTorrent"
+      },
+      "description": {
+        "en": "Download magnet links and .torrent files with librqbit.",
+        "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"
+      },
+      "artifacts": {
+        "linux-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-linux-x86_64.zip",
+          "sha256": "02dcdd7b3a31675180727ce25e38e3ccbe36be31dd4ac37c6c0ae158123d635a"
+        },
+        "macos-aarch64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-macos-aarch64.zip",
+          "sha256": "283ac2e1f3d2a278b46d425f3694feac2760a53db9e06eeaab1f714ff20283db"
+        },
+        "macos-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-macos-x86_64.zip",
+          "sha256": "f52a3bbfe0e669ff9738961a3d963e6557df7352f4ea01069b2cfd294d720aa5"
+        },
+        "windows-x86_64": {
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-windows-x86_64.zip",
+          "sha256": "1692baa817fc7947d39cb73c613d0630d96f8ffed86e98375c8f370b23743c16"
+        }
+      }
     }
   ]
 }
