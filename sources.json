@@ -1,16 +1,26 @@
-[
-  {
-    "id": "yt-dlp",
-    "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
-    "version": "0.1.0",
-    "name": {"en": "YouTube", "zh": "YouTube"},
-    "description": {"en": "Download YouTube video or audio with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"}
+{
+  "categories": {
+    "video-audio": {"en": "Video & audio", "zh": "视频与音频"},
+    "torrents": {"en": "Torrents", "zh": "种子与磁力"}
   },
-  {
-    "id": "bittorrent",
-    "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
-    "version": "0.1.0",
-    "name": {"en": "BitTorrent", "zh": "BitTorrent"},
-    "description": {"en": "Download magnet links and .torrent files with librqbit.", "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"}
-  }
-]
+  "plugins": [
+    {
+      "id": "yt-dlp",
+      "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
+      "version": "0.1.0",
+      "category": "video-audio",
+      "name": {"en": "YouTube", "zh": "YouTube"},
+      "description": {"en": "Download YouTube video and audio with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"},
+      "keywords": ["yt-dlp", "ytdlp", "YT"]
+    },
+    {
+      "id": "bittorrent",
+      "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
+      "version": "0.1.0",
+      "category": "torrents",
+      "name": {"en": "BitTorrent", "zh": "BitTorrent"},
+      "description": {"en": "Download magnet links and .torrent files with librqbit.", "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"},
+      "keywords": ["BT", "P2P", "magnet", "磁链"]
+    }
+  ]
+}

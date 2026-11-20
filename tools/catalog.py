@@ -57,23 +57,56 @@ def published(source):
     return plugin
 
 
-def validate(catalog, sources, require_packages):
-    if catalog["schema"] != 1 or not 1 <= len(sources) <= 128:
-        raise ValueError("invalid catalog schema or plugin count")
+def valid_text(text, limit):
+    return isinstance(text, str) and bool(text.strip()) and len(text.encode("utf-8")) <= limit
+
+
+def valid_localized(text, limit):
+    chinese = text.get("zh", "")
+    return valid_text(text["en"], limit) and (
+        chinese == "" or valid_text(chinese, limit)
+    )
+
+
+def validate_sources(sources):
+    categories = sources["categories"]
+    if not 1 <= len(categories) <= 16 or any(
+        not ID.fullmatch(key) or not valid_localized(label, 96)
+        for key, label in categories.items()
+    ):
+        raise ValueError("invalid marketplace category definitions")
+    if not 1 <= len(sources["plugins"]) <= 128:
+        raise ValueError("invalid source count")
     ids = set()
-    for source in sources:
+    for source in sources["plugins"]:
         if not ID.fullmatch(source["id"]) or not REPO.fullmatch(source["repository"]) or source["id"] in ids:
             raise ValueError("invalid plugin identity")
+        if source["category"] not in categories:
+            raise ValueError(f"unrecognized category for {source['id']}")
+        for key, limit in (("name", 128), ("description", 1024)):
+            if not valid_localized(source[key], limit):
+                raise ValueError(f"invalid localized {key} for {source['id']}")
+        keywords = source.get("keywords", [])
+        if not isinstance(keywords, list) or len(keywords) > 16 or any(
+            not valid_text(keyword, 96) for keyword in keywords
+        ):
+            raise ValueError(f"invalid search keywords for {source['id']}")
         ids.add(source["id"])
+    return ids
+
+
+def validate(catalog, sources, ids, require_packages):
+    if catalog["schema"] != 1 or catalog["categories"] != sources["categories"]:
+        raise ValueError("invalid catalog schema or categories")
     if {item["id"] for item in catalog["plugins"]} != ids or len(catalog["plugins"]) != len(ids):
         raise ValueError("catalog does not match source list")
     for plugin in catalog["plugins"]:
-        source = next(item for item in sources if item["id"] == plugin["id"])
+        source = next(item for item in sources["plugins"] if item["id"] == plugin["id"])
         if plugin["repository"] != source["repository"] or not VERSION.fullmatch(plugin["version"]):
             raise ValueError("invalid release identity")
-        for key in ("name", "description"):
-            if plugin[key] != source[key] or not plugin[key]["en"]:
-                raise ValueError("invalid catalog descriptions")
+        for key in ("name", "description", "category", "keywords"):
+            if plugin.get(key) != source.get(key):
+                raise ValueError(f"invalid catalog {key} for {plugin['id']}")
         artifacts = plugin["artifacts"]
         if require_packages and set(artifacts) != set(PLATFORMS):
             raise ValueError(f"missing release packages for {plugin['id']}")
@@ -89,16 +122,18 @@ def main():
     parser.add_argument("--require-packages", action="store_true")
     args = parser.parse_args()
     sources = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
+    ids = validate_sources(sources)
     path = ROOT / "catalog.json"
     if args.action == "refresh":
-        for source in sources:
-            if not ID.fullmatch(source["id"]) or not REPO.fullmatch(source["repository"]):
-                raise ValueError("invalid plugin identity")
-        catalog = {"schema": 1, "plugins": [published(source) for source in sources]}
-        validate(catalog, sources, True)
+        catalog = {
+            "schema": 1,
+            "categories": sources["categories"],
+            "plugins": [published(source) for source in sources["plugins"]],
+        }
+        validate(catalog, sources, ids, True)
         path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     else:
-        validate(json.loads(path.read_text(encoding="utf-8")), sources, args.require_packages)
+        validate(json.loads(path.read_text(encoding="utf-8")), sources, ids, args.require_packages)
     print("Catalog verified")
 
 
