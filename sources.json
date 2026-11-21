@@ -7,7 +7,7 @@
     {
       "id": "yt-dlp",
       "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "video-audio",
       "name": {"en": "Media Downloader", "zh": "流媒体下载"},
       "description": {"en": "Download videos, audio, and playlists from YouTube, Bilibili, TikTok, and other sites with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube、Bilibili、抖音、TikTok 等网站的视频、音频和播放列表。"},
@@ -23,7 +23,7 @@
     {
       "id": "bittorrent",
       "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "category": "torrents",
       "name": {"en": "BitTorrent", "zh": "BitTorrent"},
       "description": {"en": "Download magnet links and .torrent files with librqbit.", "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"},
