@@ -14,7 +14,7 @@
     {
       "id": "yt-dlp",
       "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "category": "video-audio",
       "name": {
         "en": "YouTube",
@@ -31,27 +31,27 @@
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.2/ndm-yt-dlp-0.1.2-linux-x86_64.zip",
-          "sha256": "8a3ef5d5a0108d37be2f0c88a5f60973aac489313762c53ec1a69cf9e877c616"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-linux-x86_64.zip",
+          "sha256": "7949e7a838c180eea65b560c3c9108ccd048726906e7c0ab61563475dfa07972"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.2/ndm-yt-dlp-0.1.2-macos-aarch64.zip",
-          "sha256": "04b2d960a7a9af264bc9fd4be6507cf2adc1cec3476e5fc0442ad7adef3a658d"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-macos-aarch64.zip",
+          "sha256": "1c0d0fb0726ae275a1949f94e570702b38167a97102e301b7e427491ec8b5b6d"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.2/ndm-yt-dlp-0.1.2-macos-x86_64.zip",
-          "sha256": "6ecabe94606ad842d0824a4d38850847cb8db09261d8415d5280ef23d3ac17fe"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-macos-x86_64.zip",
+          "sha256": "633fb0a608736a3a2befbc16b686168cc9f146f8cc6981e90df29b21f6862bd1"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.2/ndm-yt-dlp-0.1.2-windows-x86_64.zip",
-          "sha256": "1ebe2de6c4e2757810d79348976f70c27cc9c1fcc8521ac2a1ec8b3c23ed5be1"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-windows-x86_64.zip",
+          "sha256": "44f3d90761ea086d5aba5a347270a91f28399d61d23868615f74b9aa09f34c1d"
         }
       }
     },
     {
       "id": "bittorrent",
       "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "torrents",
       "name": {
         "en": "BitTorrent",
@@ -69,20 +69,20 @@
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-linux-x86_64.zip",
-          "sha256": "02dcdd7b3a31675180727ce25e38e3ccbe36be31dd4ac37c6c0ae158123d635a"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.1/ndm-bittorrent-0.1.1-linux-x86_64.zip",
+          "sha256": "2abb8bf94305a59aabb1eef42b8dc49b1e5288da74538ffa8ceffde0f255789d"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-macos-aarch64.zip",
-          "sha256": "283ac2e1f3d2a278b46d425f3694feac2760a53db9e06eeaab1f714ff20283db"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.1/ndm-bittorrent-0.1.1-macos-aarch64.zip",
+          "sha256": "c166fe1f9d4b1fa01ca5c07e90e419b3f1c849166ef31f40c332de68c88092f8"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-macos-x86_64.zip",
-          "sha256": "f52a3bbfe0e669ff9738961a3d963e6557df7352f4ea01069b2cfd294d720aa5"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.1/ndm-bittorrent-0.1.1-macos-x86_64.zip",
+          "sha256": "eac7dd2a960ffa851f721c470ecf687281eb7cb396df6a989448c1fe889d1da3"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.0/ndm-bittorrent-0.1.0-windows-x86_64.zip",
-          "sha256": "1692baa817fc7947d39cb73c613d0630d96f8ffed86e98375c8f370b23743c16"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.1/ndm-bittorrent-0.1.1-windows-x86_64.zip",
+          "sha256": "e82a510a27cb92cc8b0086331d1aa200be19420edc27ef479528a25faed59e27"
         }
       }
     }
