@@ -12,6 +12,7 @@ ID = re.compile(r"[a-z0-9][a-z0-9-]{0,39}")
 VERSION = re.compile(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?")
 REPO = re.compile(r"[A-Za-z0-9-]+/[A-Za-z0-9_.-]+")
 DIGEST = re.compile(r"[0-9a-f]{64}")
+DISPLAY_FIELDS = {"name", "description", "keywords"}
 
 
 def latest_release(repository):
@@ -34,12 +35,19 @@ def release_url(plugin, platform):
     return filename, url
 
 
+def listing_for_version(source, version):
+    listing = {key: value for key, value in source.items() if key != "release_metadata"}
+    listing.update(source.get("release_metadata", {}).get(version, {}))
+    listing["version"] = version
+    return listing
+
+
 def published(source):
     release = latest_release(source["repository"])
     tag = release["tag_name"]
     if not tag.startswith("v") or not VERSION.fullmatch(tag[1:]) or release["draft"] or release["prerelease"]:
         raise ValueError(f"no stable versioned release for {source['id']}")
-    plugin = source | {"version": tag[1:], "artifacts": {}}
+    plugin = listing_for_version(source, tag[1:]) | {"artifacts": {}}
     assets = {asset["name"]: asset for asset in release["assets"]}
     for platform in PLATFORMS:
         filename, url = release_url(plugin, platform)
@@ -68,6 +76,17 @@ def valid_localized(text, limit):
     )
 
 
+def validate_listing(listing):
+    for key, limit in (("name", 128), ("description", 1024)):
+        if not valid_localized(listing[key], limit):
+            raise ValueError(f"invalid localized {key} for {listing['id']}")
+    keywords = listing.get("keywords", [])
+    if not isinstance(keywords, list) or len(keywords) > 16 or any(
+        not valid_text(keyword, 96) for keyword in keywords
+    ):
+        raise ValueError(f"invalid search keywords for {listing['id']}")
+
+
 def validate_sources(sources):
     categories = sources["categories"]
     if not 1 <= len(categories) <= 16 or any(
@@ -83,14 +102,14 @@ def validate_sources(sources):
             raise ValueError("invalid plugin identity")
         if source["category"] not in categories:
             raise ValueError(f"unrecognized category for {source['id']}")
-        for key, limit in (("name", 128), ("description", 1024)):
-            if not valid_localized(source[key], limit):
-                raise ValueError(f"invalid localized {key} for {source['id']}")
-        keywords = source.get("keywords", [])
-        if not isinstance(keywords, list) or len(keywords) > 16 or any(
-            not valid_text(keyword, 96) for keyword in keywords
-        ):
-            raise ValueError(f"invalid search keywords for {source['id']}")
+        validate_listing(source)
+        metadata = source.get("release_metadata", {})
+        if not isinstance(metadata, dict) or len(metadata) > 32:
+            raise ValueError(f"invalid release metadata for {source['id']}")
+        for version, fields in metadata.items():
+            if not VERSION.fullmatch(version) or not isinstance(fields, dict) or fields.keys() - DISPLAY_FIELDS:
+                raise ValueError(f"invalid display override for {source['id']} / {version}")
+            validate_listing(listing_for_version(source, version))
         ids.add(source["id"])
     return ids
 
@@ -104,8 +123,9 @@ def validate(catalog, sources, ids, require_packages):
         source = next(item for item in sources["plugins"] if item["id"] == plugin["id"])
         if plugin["repository"] != source["repository"] or not VERSION.fullmatch(plugin["version"]):
             raise ValueError("invalid release identity")
-        for key in ("name", "description", "category", "keywords"):
-            if plugin.get(key) != source.get(key):
+        listing = listing_for_version(source, plugin["version"])
+        for key in (*DISPLAY_FIELDS, "category"):
+            if plugin.get(key) != listing.get(key):
                 raise ValueError(f"invalid catalog {key} for {plugin['id']}")
         artifacts = plugin["artifacts"]
         if require_packages and set(artifacts) != set(PLATFORMS):

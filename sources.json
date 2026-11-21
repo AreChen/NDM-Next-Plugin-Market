@@ -7,11 +7,18 @@
     {
       "id": "yt-dlp",
       "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "video-audio",
-      "name": {"en": "YouTube", "zh": "YouTube"},
-      "description": {"en": "Download YouTube video and audio with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"},
-      "keywords": ["yt-dlp", "ytdlp", "YT"]
+      "name": {"en": "Media Downloader", "zh": "流媒体下载"},
+      "description": {"en": "Download videos, audio, and playlists from YouTube, Bilibili, TikTok, and other sites with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube、Bilibili、抖音、TikTok 等网站的视频、音频和播放列表。"},
+      "keywords": ["yt-dlp", "ytdlp", "YouTube", "Bilibili", "B站", "抖音", "TikTok", "Vimeo", "SoundCloud", "Twitch", "HLS", "DASH", "视频", "音频"],
+      "release_metadata": {
+        "0.1.3": {
+          "name": {"en": "YouTube", "zh": "YouTube"},
+          "description": {"en": "Download YouTube video and audio with yt-dlp.", "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"},
+          "keywords": ["yt-dlp", "ytdlp", "YT"]
+        }
+      }
     },
     {
       "id": "bittorrent",

@@ -1,10 +1,10 @@
 # NDM Next plugin market
 
 NDM Next reads [catalog.json](catalog.json) to browse, install, update and
-uninstall plugin packages. The first catalog sources are the YouTube and
+uninstall plugin packages. The first catalog sources are the yt-dlp and
 BitTorrent engines.
 
-- [YouTube engine](https://github.com/AreChen/NDM-Next-Plugin-yt-dlp)
+- [yt-dlp engine](https://github.com/AreChen/NDM-Next-Plugin-yt-dlp)
 - [BitTorrent engine](https://github.com/AreChen/NDM-Next-Plugin-BitTorrent)
 
 Each engine publishes its own versioned ZIPs and SHA-256 sidecars. After both
@@ -27,9 +27,13 @@ can be defined here. An optional `keywords` array can include protocol
 abbreviations and search terms in either language. Search also covers the
 plugin ID, both translations and both category labels.
 
+Use `release_metadata` to override `name`, `description`, or `keywords` for
+an exact package version. This lets a published package keep its matching
+listing while a new name or description is prepared in the source entry.
+
 A plugin archive includes a manifest, a native engine executable, and
 optionally a JavaScript panel. Use localized label objects in the manifest
-and panel. [NDM Next SDK and package contract](https://github.com/AreChen/NDM-Next/tree/codex/plugin-sdk-mcp/desktop/crates/ndm-plugin-sdk)
+and panel. [NDM Next SDK and package contract](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
 
 ## 上架与多语言
 
@@ -39,5 +43,8 @@ and panel. [NDM Next SDK and package contract](https://github.com/AreChen/NDM-Ne
 可通过 `keywords` 添加中英文搜索词和协议简称。搜索还会匹配插件 ID、
 两种语言的名称和描述，以及分类标签。
 
+`release_metadata` 可按精确版本覆盖名称、描述和关键词。准备新版本时，
+已发布的安装包会使用对应版本的市场文案。
+
 包内清单和可选 JavaScript 面板同样支持多语言标签。
-[下载引擎 SDK 与包格式](https://github.com/AreChen/NDM-Next/tree/codex/plugin-sdk-mcp/desktop/crates/ndm-plugin-sdk)
+[下载引擎 SDK 与包格式](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
