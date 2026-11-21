@@ -1,10 +1,10 @@
 # NDM Next plugin market
 
 NDM Next reads [catalog.json](catalog.json) to browse, install, update and
-uninstall plugin packages. The first catalog sources are the yt-dlp and
-BitTorrent engines.
+uninstall plugin packages. The first catalog entries are Media Downloader
+and BitTorrent.
 
-- [yt-dlp engine](https://github.com/AreChen/NDM-Next-Plugin-yt-dlp)
+- [Media Downloader / 流媒体下载](https://github.com/AreChen/NDM-Next-Plugin-yt-dlp)
 - [BitTorrent engine](https://github.com/AreChen/NDM-Next-Plugin-BitTorrent)
 
 Each engine publishes its own versioned ZIPs and SHA-256 sidecars. After both

@@ -14,37 +14,48 @@
     {
       "id": "yt-dlp",
       "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
-      "version": "0.1.3",
+      "version": "0.2.0",
       "category": "video-audio",
       "name": {
-        "en": "YouTube",
-        "zh": "YouTube"
+        "en": "Media Downloader",
+        "zh": "流媒体下载"
       },
       "description": {
-        "en": "Download YouTube video and audio with yt-dlp.",
-        "zh": "使用 yt-dlp 下载 YouTube 视频或音频。"
+        "en": "Download videos, audio, and playlists from YouTube, Bilibili, TikTok, and other sites with yt-dlp.",
+        "zh": "使用 yt-dlp 下载 YouTube、Bilibili、抖音、TikTok 等网站的视频、音频和播放列表。"
       },
       "keywords": [
         "yt-dlp",
         "ytdlp",
-        "YT"
+        "YouTube",
+        "Bilibili",
+        "B站",
+        "抖音",
+        "TikTok",
+        "Vimeo",
+        "SoundCloud",
+        "Twitch",
+        "HLS",
+        "DASH",
+        "视频",
+        "音频"
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-linux-x86_64.zip",
-          "sha256": "7949e7a838c180eea65b560c3c9108ccd048726906e7c0ab61563475dfa07972"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.0/ndm-yt-dlp-0.2.0-linux-x86_64.zip",
+          "sha256": "f1b1ae39d4e2aff0e98030a2f7d2144394d2807d722f4352fbea5479cc6af0d6"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-macos-aarch64.zip",
-          "sha256": "1c0d0fb0726ae275a1949f94e570702b38167a97102e301b7e427491ec8b5b6d"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.0/ndm-yt-dlp-0.2.0-macos-aarch64.zip",
+          "sha256": "5cef82b7383b6cb2395ff4b9cb5a4a5e8ba06f402158cb3e8d1b23b9877079cb"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-macos-x86_64.zip",
-          "sha256": "633fb0a608736a3a2befbc16b686168cc9f146f8cc6981e90df29b21f6862bd1"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.0/ndm-yt-dlp-0.2.0-macos-x86_64.zip",
+          "sha256": "f57114e27e927672894498ee40461d26dadd3a98c09d31e8a260bd2a2c120fda"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.1.3/ndm-yt-dlp-0.1.3-windows-x86_64.zip",
-          "sha256": "44f3d90761ea086d5aba5a347270a91f28399d61d23868615f74b9aa09f34c1d"
+          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.0/ndm-yt-dlp-0.2.0-windows-x86_64.zip",
+          "sha256": "5b04a479a5a9021c48458ae76b4aaf11334c54bbcad8addbee54d42c0046e074"
         }
       }
     },
