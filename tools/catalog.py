@@ -1,4 +1,4 @@
-"""Build and validate the NDM Next marketplace catalog."""
+"""Build and validate the OnesDM marketplace catalog."""
 import argparse
 import json
 import os

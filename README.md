@@ -1,6 +1,6 @@
-# NDM Next plugin market
+# OnesDM plugin market
 
-NDM Next reads [catalog.json](catalog.json) to browse, install, update and
+OnesDM reads [catalog.json](catalog.json) to browse, install, update and
 uninstall plugin packages. The first catalog entries are Media Downloader
 and BitTorrent.
 
@@ -33,7 +33,7 @@ listing while a new name or description is prepared in the source entry.
 
 A plugin archive includes a manifest, a native engine executable, and
 optionally a JavaScript panel. Use localized label objects in the manifest
-and panel. [NDM Next SDK and package contract](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
+and panel. [OnesDM SDK and package contract](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
 
 ## 上架与多语言
 
