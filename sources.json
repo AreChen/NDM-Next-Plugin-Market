@@ -6,7 +6,7 @@
   "plugins": [
     {
       "id": "yt-dlp",
-      "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
+      "repository": "AreChen/onesdm-plugin-yt-dlp",
       "version": "0.2.1",
       "category": "video-audio",
       "name": {"en": "Media Downloader", "zh": "流媒体下载"},
@@ -22,7 +22,7 @@
     },
     {
       "id": "bittorrent",
-      "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
+      "repository": "AreChen/onesdm-plugin-bittorrent",
       "version": "0.1.2",
       "category": "torrents",
       "name": {"en": "BitTorrent", "zh": "BitTorrent"},

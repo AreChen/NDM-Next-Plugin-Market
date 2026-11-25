@@ -13,7 +13,7 @@
   "plugins": [
     {
       "id": "yt-dlp",
-      "repository": "AreChen/NDM-Next-Plugin-yt-dlp",
+      "repository": "AreChen/onesdm-plugin-yt-dlp",
       "version": "0.2.1",
       "category": "video-audio",
       "name": {
@@ -42,26 +42,26 @@
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-linux-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-linux-x86_64.zip",
           "sha256": "6e5bb621d1156bd7f85f9b4334cfa6211057aeff5872f1f002278134d6870ef8"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-aarch64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-aarch64.zip",
           "sha256": "f6896b6e7cd4c85d9df24ee3e00105384cbf77e436b44f4e3797d4c4aef65bcf"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-x86_64.zip",
           "sha256": "50b152989030d6ccd8341fec442b27b1b5f61aaf7dfb303cecd7374f5beb96dc"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-windows-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-windows-x86_64.zip",
           "sha256": "9197ca67ba8c355afe31c61e0117bc9a3238d83eb8c871602430d1649e93905f"
         }
       }
     },
     {
       "id": "bittorrent",
-      "repository": "AreChen/NDM-Next-Plugin-BitTorrent",
+      "repository": "AreChen/onesdm-plugin-bittorrent",
       "version": "0.1.2",
       "category": "torrents",
       "name": {
@@ -80,19 +80,19 @@
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-linux-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-bittorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-linux-x86_64.zip",
           "sha256": "280108c7c09321519b5d6a52f23d24e195843daf509f17c16e34816a32fd4eab"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-macos-aarch64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-bittorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-macos-aarch64.zip",
           "sha256": "a62be7a3109946949d6fc33a9fbbef0dd58a4b35f6cf4eefde1548bb9112c1fd"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-macos-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-bittorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-macos-x86_64.zip",
           "sha256": "5633eeb84d03c9c32be8c77a2ad1e5cf0641db5ba65ad42ccb2d86b9e54c6f7d"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/NDM-Next-Plugin-BitTorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-windows-x86_64.zip",
+          "url": "https://github.com/AreChen/onesdm-plugin-bittorrent/releases/download/v0.1.2/ndm-bittorrent-0.1.2-windows-x86_64.zip",
           "sha256": "3d3439c5221b300e7a61778b02b4484a2c4e8cdab0525b2b11837441f2a53068"
         }
       }

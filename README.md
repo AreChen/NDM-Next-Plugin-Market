@@ -4,8 +4,8 @@ OnesDM reads [catalog.json](catalog.json) to browse, install, update and
 uninstall plugin packages. The first catalog entries are Media Downloader
 and BitTorrent.
 
-- [Media Downloader / 流媒体下载](https://github.com/AreChen/NDM-Next-Plugin-yt-dlp)
-- [BitTorrent engine](https://github.com/AreChen/NDM-Next-Plugin-BitTorrent)
+- [Media Downloader / 流媒体下载](https://github.com/AreChen/onesdm-plugin-yt-dlp)
+- [BitTorrent engine](https://github.com/AreChen/onesdm-plugin-bittorrent)
 
 Each engine publishes its own versioned ZIPs and SHA-256 sidecars. After both
 releases are available, run `python3 tools/catalog.py refresh` and review the

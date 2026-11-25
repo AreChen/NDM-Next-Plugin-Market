@@ -19,7 +19,7 @@ def latest_release(repository):
     api = f"https://api.github.com/repos/{repository}/releases/latest"
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "NDM-Next-Plugin-Market",
+        "User-Agent": "onesdm-plugin-market",
     }
     token = os.environ.get("GH_TOKEN")
     if token:
