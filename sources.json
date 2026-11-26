@@ -1,7 +1,8 @@
 {
   "categories": {
     "video-audio": {"en": "Video & audio", "zh": "视频与音频"},
-    "torrents": {"en": "Torrents", "zh": "种子与磁力"}
+    "torrents": {"en": "Torrents", "zh": "种子与磁力"},
+    "ai": {"en": "AI & automation", "zh": "AI 与自动化"}
   },
   "plugins": [
     {
@@ -28,6 +29,16 @@
       "name": {"en": "BitTorrent", "zh": "BitTorrent"},
       "description": {"en": "Download magnet links and .torrent files with librqbit.", "zh": "使用 librqbit 下载磁力链接和 .torrent 种子。"},
       "keywords": ["BT", "P2P", "magnet", "磁链"]
+    },
+    {
+      "id": "character",
+      "repository": "AreChen/onesdm-plugin-character",
+      "version": "0.1.0",
+      "universal": true,
+      "category": "ai",
+      "name": {"en": "Download Characters", "zh": "下载角色"},
+      "description": {"en": "Create reusable download profiles with AI. Save the engine, device User-Agent, language, and destination. Requires OnesDM 0.9.0 or later.", "zh": "用 AI 创建可复用的下载角色，保存下载引擎、设备 UA、语言和目录。需要 OnesDM 0.9.0 或更新版本。"},
+      "keywords": ["AI", "MCP", "Skill", "profiles", "presets", "角色", "预设", "下载配置"]
     }
   ]
 }

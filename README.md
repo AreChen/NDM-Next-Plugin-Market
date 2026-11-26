@@ -1,14 +1,14 @@
 # OnesDM plugin market
 
 OnesDM reads [catalog.json](catalog.json) to browse, install, update and
-uninstall plugin packages. The first catalog entries are Media Downloader
-and BitTorrent.
+uninstall plugin packages.
 
 - [Media Downloader / 流媒体下载](https://github.com/AreChen/onesdm-plugin-yt-dlp)
 - [BitTorrent engine](https://github.com/AreChen/onesdm-plugin-bittorrent)
+- [Download Characters / 下载角色](https://github.com/AreChen/onesdm-plugin-character)
 
-Each engine publishes its own versioned ZIPs and SHA-256 sidecars. After both
-releases are available, run `python3 tools/catalog.py refresh` and review the
+Plugins publish versioned ZIPs and SHA-256 sidecars. After publishing a plugin
+update, run `python3 tools/catalog.py refresh` and review the
 resulting catalog. The script checks the platform ZIP URLs and compares the
 release sidecars with the digests reported by GitHub. Use
 `python3 tools/catalog.py check --require-packages` for a catalog ready to
@@ -31,9 +31,11 @@ Use `release_metadata` to override `name`, `description`, or `keywords` for
 an exact package version. This lets a published package keep its matching
 listing while a new name or description is prepared in the source entry.
 
-A plugin archive includes a manifest, a native engine executable, and
-optionally a JavaScript panel. Use localized label objects in the manifest
-and panel. [OnesDM SDK and package contract](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
+Engine archives include a manifest, a native executable, and optionally a
+JavaScript panel. A plugin that ships one archive for all platforms uses
+`"universal": true` and names the ZIP `<repository-name>-<version>.zip`.
+Each platform entry points to the verified package.
+[OnesDM SDK and package contract](https://github.com/AreChen/OnesDM/tree/main/desktop/crates/ndm-plugin-sdk)
 
 ## 上架与多语言
 
@@ -47,4 +49,6 @@ and panel. [OnesDM SDK and package contract](https://github.com/AreChen/NDM-Next
 已发布的安装包会使用对应版本的市场文案。
 
 包内清单和可选 JavaScript 面板同样支持多语言标签。
-[下载引擎 SDK 与包格式](https://github.com/AreChen/NDM-Next/tree/main/desktop/crates/ndm-plugin-sdk)
+发布通用包时，在源条目中设置 `"universal": true`，ZIP 命名为
+`<仓库名>-<版本>.zip`。各平台共用同一份已校验的包。
+[下载引擎 SDK 与包格式](https://github.com/AreChen/OnesDM/tree/main/desktop/crates/ndm-plugin-sdk)

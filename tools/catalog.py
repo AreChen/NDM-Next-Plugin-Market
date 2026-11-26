@@ -28,15 +28,18 @@ def latest_release(repository):
         return json.load(response)
 
 
-def release_url(plugin, platform):
-    version = plugin["version"]
-    filename = f"ndm-{plugin['id']}-{version}-{platform}.zip"
-    url = f"https://github.com/{plugin['repository']}/releases/download/v{version}/{filename}"
+def release_url(source, version, platform):
+    repository = source["repository"]
+    if source.get("universal", False):
+        filename = f"{repository.split('/')[-1]}-{version}.zip"
+    else:
+        filename = f"ndm-{source['id']}-{version}-{platform}.zip"
+    url = f"https://github.com/{repository}/releases/download/v{version}/{filename}"
     return filename, url
 
 
 def listing_for_version(source, version):
-    listing = {key: value for key, value in source.items() if key != "release_metadata"}
+    listing = {key: value for key, value in source.items() if key not in {"release_metadata", "universal"}}
     listing.update(source.get("release_metadata", {}).get(version, {}))
     listing["version"] = version
     return listing
@@ -49,19 +52,22 @@ def published(source):
         raise ValueError(f"no stable versioned release for {source['id']}")
     plugin = listing_for_version(source, tag[1:]) | {"artifacts": {}}
     assets = {asset["name"]: asset for asset in release["assets"]}
+    verified = {}
     for platform in PLATFORMS:
-        filename, url = release_url(plugin, platform)
-        asset = assets.get(filename)
-        if not asset or asset["browser_download_url"] != url or f"{filename}.sha256" not in assets:
-            raise ValueError(f"incomplete release asset for {source['id']} / {platform}")
-        digest = asset.get("digest") or ""
-        if not digest.startswith("sha256:") or not DIGEST.fullmatch(digest[7:]):
-            raise ValueError(f"missing GitHub asset digest for {filename}")
-        with urllib.request.urlopen(url + ".sha256", timeout=30) as response:
-            check = response.read(1024).decode("ascii").strip().split()
-        if check != [digest[7:], filename]:
-            raise ValueError(f"release checksum sidecar disagrees for {filename}")
-        plugin["artifacts"][platform] = {"url": url, "sha256": digest[7:]}
+        filename, url = release_url(source, plugin["version"], platform)
+        if filename not in verified:
+            asset = assets.get(filename)
+            if not asset or asset["browser_download_url"] != url or f"{filename}.sha256" not in assets:
+                raise ValueError(f"incomplete release asset for {source['id']} / {platform}")
+            digest = asset.get("digest") or ""
+            if not digest.startswith("sha256:") or not DIGEST.fullmatch(digest[7:]):
+                raise ValueError(f"missing GitHub asset digest for {filename}")
+            with urllib.request.urlopen(url + ".sha256", timeout=30) as response:
+                check = response.read(1024).decode("ascii").strip().split()
+            if check != [digest[7:], filename]:
+                raise ValueError(f"release checksum sidecar disagrees for {filename}")
+            verified[filename] = {"url": url, "sha256": digest[7:]}
+        plugin["artifacts"][platform] = verified[filename]
     return plugin
 
 
@@ -102,6 +108,8 @@ def validate_sources(sources):
             raise ValueError("invalid plugin identity")
         if source["category"] not in categories:
             raise ValueError(f"unrecognized category for {source['id']}")
+        if not isinstance(source.get("universal", False), bool):
+            raise ValueError(f"invalid universal package setting for {source['id']}")
         validate_listing(source)
         metadata = source.get("release_metadata", {})
         if not isinstance(metadata, dict) or len(metadata) > 32:
@@ -131,9 +139,11 @@ def validate(catalog, sources, ids, require_packages):
         if require_packages and set(artifacts) != set(PLATFORMS):
             raise ValueError(f"missing release packages for {plugin['id']}")
         for platform, artifact in artifacts.items():
-            _, url = release_url(plugin, platform)
+            _, url = release_url(source, plugin["version"], platform)
             if platform not in PLATFORMS or artifact["url"] != url or not DIGEST.fullmatch(artifact["sha256"]):
                 raise ValueError("invalid platform package or digest")
+        if source.get("universal", False) and len({artifact["sha256"] for artifact in artifacts.values()}) > 1:
+            raise ValueError(f"universal package digests differ for {plugin['id']}")
 
 
 def main():
