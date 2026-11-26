@@ -14,7 +14,7 @@
     {
       "id": "yt-dlp",
       "repository": "AreChen/onesdm-plugin-yt-dlp",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "category": "video-audio",
       "name": {
         "en": "Media Downloader",
@@ -42,20 +42,20 @@
       ],
       "artifacts": {
         "linux-x86_64": {
-          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-linux-x86_64.zip",
-          "sha256": "6e5bb621d1156bd7f85f9b4334cfa6211057aeff5872f1f002278134d6870ef8"
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.2/ndm-yt-dlp-0.2.2-linux-x86_64.zip",
+          "sha256": "76cee0de9e2204fc7ffe03a246156c53e7417e6eeaaa57518840d021dc3b55e0"
         },
         "macos-aarch64": {
-          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-aarch64.zip",
-          "sha256": "f6896b6e7cd4c85d9df24ee3e00105384cbf77e436b44f4e3797d4c4aef65bcf"
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.2/ndm-yt-dlp-0.2.2-macos-aarch64.zip",
+          "sha256": "37e6e88b90d3b0fa614bb55e8bc0d4e6be6bcd91c043de074f0261534ddad7ec"
         },
         "macos-x86_64": {
-          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-macos-x86_64.zip",
-          "sha256": "50b152989030d6ccd8341fec442b27b1b5f61aaf7dfb303cecd7374f5beb96dc"
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.2/ndm-yt-dlp-0.2.2-macos-x86_64.zip",
+          "sha256": "901cf0709abcbfb881bdbddf4b999c93a231300dd0304ec5d1268f5fb6a3c118"
         },
         "windows-x86_64": {
-          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.1/ndm-yt-dlp-0.2.1-windows-x86_64.zip",
-          "sha256": "9197ca67ba8c355afe31c61e0117bc9a3238d83eb8c871602430d1649e93905f"
+          "url": "https://github.com/AreChen/onesdm-plugin-yt-dlp/releases/download/v0.2.2/ndm-yt-dlp-0.2.2-windows-x86_64.zip",
+          "sha256": "1dcaa614fa61c095dea646f8bb91060b90aa4d5acf2bb8b8a533a57c400c7b38"
         }
       }
     },
